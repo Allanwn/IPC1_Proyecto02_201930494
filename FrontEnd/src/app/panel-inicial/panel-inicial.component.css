@@ -1,0 +1,28 @@
+
+
+.title{
+
+    text-align: center;
+    color: red;
+
+
+  }
+
+  .sub-title{
+
+    text-align: center;
+    color: aliceblue;
+
+
+  }
+
+
+  .col{
+    text-align: center;
+  }
+
+  .chart-container {
+    width: 250px;   /* Establece el ancho deseado */
+    height: 275px;  /* Establece la altura deseada */
+  }
+  

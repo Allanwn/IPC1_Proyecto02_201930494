@@ -1,0 +1,155 @@
+<div class="container p-5 contenedor">
+
+
+  <div>
+
+    <div class="row nuevos">
+      <h4 class="title">Nuevos datos</h4>
+
+      <!-- Nuevo Producto -->
+      <div class="col">
+        <h6 class="sub-title">Nuevo producto</h6>
+        <textarea rows="12" cols="55" placeholder="Agrega un nuevo producto" [(ngModel)]="nuevoProducto"></textarea>
+        <button type="button" class="btn btn-outline-success" (click)="agregarProducto()" data-bs-toggle="offcanvas"
+          data-bs-target="#demo">
+          Agregar Producto
+        </button>
+      </div>
+
+      <!-- Nuevo Cliente -->
+      <div class="col">
+        <h6 class="sub-title">Nuevo Cliente</h6>
+        <textarea rows="12" cols="55" placeholder="Agrega un nuevo cliente" [(ngModel)]="nuevoCliente"></textarea>
+        <button type="button" class="btn btn-outline-success" (click)="agregarCliente()" data-bs-toggle="offcanvas"
+          data-bs-target="#demo">
+          Agregar Cliente
+        </button>
+      </div>
+    </div>
+
+
+    <div class="row estadistica ">
+
+      <h4 class="title"> Estadisticas </h4>
+
+      <div class="col">
+
+
+        <h6 class="sub-title"> Productos </h6>
+        <div class="container border">
+          <div>
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+              [legend]="barChartLegend">
+            </canvas>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="col">
+
+
+        <h6 class="sub-title"> Clientes</h6>
+        <div class="container border">
+          <div class="chart-container">
+            <canvas baseChart 
+                    [datasets]="pieChartData" 
+                    [labels]="pieChartLabels" 
+                    [options]="pieChartOptions" 
+                    [legend]="pieChartLegend" 
+                    [type]="pieChartType">
+            </canvas>
+          </div>
+          
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div>
+
+    <h4 class="title"> Tablas </h4>
+
+    <div class="container producto">
+      <h6 class="sub-title">Productos</h6>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID Producto</th>
+            <th>Nombre Producto</th>
+            <th>Precio</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody id="productosTabla">
+          <!-- Usamos *ngFor para iterar sobre la lista de clientes -->
+          <tr *ngFor="let producto of productos">
+            <td>{{ producto.id_producto}}</td>
+            <td>{{ producto.nombre_producto }}</td>
+            <td>{{ producto.precio_producto }}</td>
+            <td>{{ producto.stock_producto }}</td>
+
+
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="container clientes">
+
+
+      <h6 class="sub-title">Clientes</h6>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID Cliente</th>
+            <th>Nombre Cliente
+            </th>
+            <th>Apellido</th>
+            <th>Nit</th>
+            <th>edad</th>
+          </tr>
+        </thead>
+        <tbody id="clientesTabla">
+          <!-- Usamos *ngFor para iterar sobre la lista de clientes -->
+          <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.id_cliente }}</td>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.apellido }}</td>
+            <td>{{ cliente.nit }}</td>
+            <td>{{ cliente.edad }}</td>
+
+        </tbody>
+      </table>
+
+    </div>
+
+
+
+
+  </div>
+
+</div>
+
+<!-- Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="demo" aria-labelledby="offcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasLabel">Mensajes del Servidor</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+
+    <div *ngIf="messages">
+      <p>{{ messages }}</p>
+    </div>
+
+  </div>
+</div>

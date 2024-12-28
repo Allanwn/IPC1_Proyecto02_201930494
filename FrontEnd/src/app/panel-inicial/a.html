@@ -1,0 +1,49 @@
+<div class="container p-5 contenedor">
+    <div>
+
+      
+      <div class="row nuevos">
+        <h4 class="title">Nuevos datos</h4>
+  
+        <!-- Nuevo Producto -->
+        <div class="col">
+          <h6 class="sub-title">Nuevo producto</h6>
+          <textarea
+            rows="12"
+            cols="55"
+            placeholder="Agrega un nuevo producto"
+            [(ngModel)]="nuevoProducto"
+          ></textarea>
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            (click)="agregarProducto()"
+          >
+            Agregar Producto
+          </button>
+        </div>
+  
+        <!-- Nuevo Cliente -->
+        <div class="col">
+          <h6 class="sub-title">Nuevo Cliente</h6>
+          <textarea
+            rows="12"
+            cols="55"
+            placeholder="Agrega un nuevo cliente"
+            [(ngModel)]="nuevoCliente"
+          ></textarea>
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            (click)="agregarCliente()"
+          >
+            Agregar Cliente
+          </button>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+  
